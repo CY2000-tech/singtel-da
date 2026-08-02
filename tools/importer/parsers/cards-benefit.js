@@ -2,50 +2,85 @@
 /* global WebImporter */
 /**
  * Parser for cards-benefit. Base block: cards.
- * Source: https://www.singtel.com/personal/products-services/mobile/5g-plus (Singtel 5G+)
+ * Sources:
+ *   - https://www.singtel.com/personal/products-services/mobile/5g-plus (Singtel 5G+)
+ *   - https://www.singtel.com/personal/mobile/plans/sim-only
+ *
  * Instances:
- *   1. .sc-gEvEer.iEmrWN:has(> .sc-eqUAAy.liiqJP > .sc-cKXybt.sc-lgjHQU img[alt*="Upsize"])
- *      -> "Upsize" intro benefit tiles (UNLIMITED 5G+, Safer Roaming, Secure 5G+ Network)
- *   2. .sc-cbPlza.labNNc .sc-gEvEer.iEmrWN:has(> div > .sc-cKXybt.sc-lgjHQU)
- *      -> "huge PLUS" benefit tiles (Network PLUS, Coverage PLUS, Innovation PLUS)
+ *   5G+ (hashed): the "Upsize" intro tiles and "huge PLUS" tiles.
+ *   sim-only (hash-free): the PayLater perks row (3 icon tiles, one linking to
+ *     Singtel Red membership):
+ *       [data-testid="ColumnControllerRow"]:has(> div a[href*='red-membership'])
  *
  * Library structure (Cards, 2 columns, multiple rows):
  *   Row 1: block name
  *   Each following row = one card: [ image/icon | text (heading + optional description) ]
  *
- * Source notes (validated against cleaned.html):
- *   - Each tile is a .sc-cKXybt.sc-lgjHQU containing one <img> icon and one <h4> label.
- *   - The PLUS tiles additionally carry a descriptive <p>; the intro tiles do not.
+ * Two source shapes are handled:
+ *   A. 5G+ tiles: .sc-cKXybt.sc-lgjHQU wrappers, each an <img> icon + <h4> label
+ *      (PLUS tiles also carry a description <p>).
+ *   B. sim-only perk tiles: the row's direct-child tiles, each an <img> plus a
+ *      description <p> (no heading on the perks row).
  */
 export default function parse(element, { document }) {
-  const cards = Array.from(element.querySelectorAll('.sc-cKXybt.sc-lgjHQU'));
+  const clean = (s) => (s || '').replace(/ /g, ' ').replace(/\s+/g, ' ').trim();
+  const cells = [];
 
-  // Empty-block guard.
-  if (cards.length === 0) {
-    element.replaceWith(...element.childNodes);
+  // Shape A: hashed 5G+ tiles.
+  const cards = Array.from(element.querySelectorAll('.sc-cKXybt.sc-lgjHQU'));
+  if (cards.length > 0) {
+    cards.forEach((card) => {
+      const img = card.querySelector('img');
+      const heading = card.querySelector('h4, h3, h2, [class*="heading"]');
+      const descs = Array.from(card.querySelectorAll('p'))
+        .filter((p) => p.textContent && p.textContent.replace(/ /g, '').trim());
+
+      const textCell = [];
+      if (heading) {
+        const h = document.createElement('h3');
+        h.textContent = clean(heading.textContent);
+        textCell.push(h);
+      }
+      descs.forEach((p) => textCell.push(p));
+      cells.push([img || '', textCell.length ? textCell : '']);
+    });
+
+    const block = WebImporter.Blocks.createBlock(document, { name: 'cards-benefit', cells });
+    element.replaceWith(block);
     return;
   }
 
-  const cells = [];
-  cards.forEach((card) => {
-    const img = card.querySelector('img');
-    const heading = card.querySelector('h4, h3, h2, [class*="heading"]');
-    // Description paragraph(s), if present (PLUS tiles). Skip empty/nbsp-only ones.
-    const descs = Array.from(card.querySelectorAll('p'))
-      .filter((p) => p.textContent && p.textContent.replace(/ /g, '').trim());
+  // Shape B: sim-only perk tiles (direct-child tiles with an image).
+  const tiles = Array.from(element.children).filter((t) => t.querySelector('img'));
+  if (tiles.length > 0) {
+    tiles.forEach((tile) => {
+      const img = tile.querySelector('img');
+      const heading = tile.querySelector('h4, h3, h2');
+      // Description: leaf paragraphs with real text.
+      const descs = Array.from(tile.querySelectorAll('p'))
+        .filter((p) => clean(p.textContent))
+        .filter((p) => !p.querySelector('p'));
 
-    const textCell = [];
-    if (heading) {
-      // Normalise the label to a real heading element.
-      const h = document.createElement('h3');
-      h.textContent = (heading.textContent || '').trim();
-      textCell.push(h);
-    }
-    descs.forEach((p) => textCell.push(p));
+      const textCell = [];
+      if (heading && clean(heading.textContent)) {
+        const h = document.createElement('h3');
+        h.textContent = clean(heading.textContent);
+        textCell.push(h);
+      }
+      descs.forEach((p) => {
+        const np = document.createElement('p');
+        // Preserve inline links inside the description paragraph.
+        np.append(...p.cloneNode(true).childNodes);
+        if (clean(np.textContent)) textCell.push(np);
+      });
+      cells.push([img || '', textCell.length ? textCell : '']);
+    });
 
-    cells.push([img || '', textCell.length ? textCell : '']);
-  });
+    const block = WebImporter.Blocks.createBlock(document, { name: 'cards-benefit', cells });
+    element.replaceWith(block);
+    return;
+  }
 
-  const block = WebImporter.Blocks.createBlock(document, { name: 'cards-benefit', cells });
-  element.replaceWith(block);
+  // Empty-block guard.
+  element.replaceWith(...element.childNodes);
 }

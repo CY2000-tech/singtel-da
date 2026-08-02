@@ -18,12 +18,21 @@
     "structure": "tab labels + panel with comparison image"
   },
   "reuseGuidance": {
-    "suitableFor": ["tabbed plan/price comparison","switchable content panels"],
-    "notSuitableFor": ["single-panel content","accordion Q&A"]
+    "suitableFor": [
+      "tabbed plan/price comparison",
+      "switchable content panels"
+    ],
+    "notSuitableFor": [
+      "single-panel content",
+      "accordion Q&A"
+    ]
   },
   "usage": {
-    "pagesUsing": ["/personal/products-services/mobile/5g-plus"],
-    "reuseCount": 1,
-    "lastUsed": "2026-08-02T02:42:00.000Z"
+    "pagesUsing": [
+      "/personal/products-services/mobile/5g-plus",
+      "/personal/products-services/lifestyle-services/my-smart-network"
+    ],
+    "reuseCount": 2,
+    "lastUsed": "2026-08-02T06:30:00.000Z"
   }
 }

@@ -2,20 +2,38 @@
 /* global WebImporter */
 /**
  * Parser for tabs-plans. Base block: tabs.
- * Source: https://www.singtel.com/personal/products-services/mobile/5g-plus (Singtel 5G+)
- * Instance selector:
- *   div:has(> .sc-bkSUFG.jYsZQx):has(> #tabpanel-0):has(> #tabpanel-1)
+ * Sources:
+ *   - https://www.singtel.com/personal/products-services/mobile/5g-plus (Singtel 5G+)
+ *   - https://www.singtel.com/personal/products-services/lifestyle-services/my-smart-network
+ *
+ * Instance selector (hash-free, stable):
+ *   div:has(> [role="tablist"]):has(> [id^="tabpanel-"])
  *
  * Library structure (Tabs, 2 columns, multiple rows):
  *   Row 1: block name
  *   Each following row = one tab: [ tab label | tab content ]
  *
- * Source notes (validated against cleaned.html):
- *   - Tab labels live in .sc-bkSUFG.jYsZQx as two <h3> ("Phone plans", "SIM Only plans").
- *   - Panel content is #tabpanel-0 / #tabpanel-1, each holding a comparison <img>.
+ * Stability notes:
+ *   - Styled-component hashes (e.g. .sc-bkSUFG.jYsZQx) are regenerated on every
+ *     React build, so we anchor on stable [role="tab"]/[role="tablist"] and the
+ *     #tabpanel-N ids instead.
+ *   - The tab content cell keeps ALL of the panel's element children. On the
+ *     my-smart-network page the panels contain product carousels that the
+ *     cards-solution parser has ALREADY replaced with a `cards-solution` block
+ *     (cards-solution runs before tabs-plans), so moving the panel children in
+ *     preserves that nested block instead of discarding it.
  */
 export default function parse(element, { document }) {
-  const labelEls = Array.from(element.querySelectorAll('.sc-bkSUFG.jYsZQx h3, .sc-bkSUFG.jYsZQx h4'));
+  // Tab labels: prefer accessible [role="tab"] elements; fall back to the
+  // hashed label bar's headings for older markup.
+  let labelEls = Array.from(element.querySelectorAll(':scope > [role="tablist"] [role="tab"]'));
+  if (labelEls.length === 0) {
+    labelEls = Array.from(element.querySelectorAll('[role="tab"]'));
+  }
+  if (labelEls.length === 0) {
+    labelEls = Array.from(element.querySelectorAll('.sc-bkSUFG.jYsZQx h3, .sc-bkSUFG.jYsZQx h4'));
+  }
+
   const panels = Array.from(element.querySelectorAll(':scope > [id^="tabpanel-"]'));
 
   // Empty-block guard.
@@ -31,14 +49,10 @@ export default function parse(element, { document }) {
     const label = document.createElement('p');
     label.textContent = labelText;
 
-    // Content cell: the panel's media (image) plus any text.
-    const contentCell = [];
-    const img = panel.querySelector('img');
-    if (img) contentCell.push(img);
-    // Preserve any additional textual content in the panel.
-    Array.from(panel.querySelectorAll('p, h1, h2, h3, h4, h5, h6'))
-      .filter((el) => el.textContent && el.textContent.trim())
-      .forEach((el) => contentCell.push(el));
+    // Content cell: keep every element child of the panel (moves nodes out of
+    // the panel and into the cell). This preserves any block table a prior
+    // parser (e.g. cards-solution) already created inside the panel.
+    const contentCell = Array.from(panel.children);
 
     cells.push([label, contentCell.length ? contentCell : '']);
   });

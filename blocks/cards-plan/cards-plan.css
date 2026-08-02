@@ -1,0 +1,196 @@
+/* Block: cards-plan — SIM-only plan pricing cards.
+   Values extracted from source computed styles (singtel.com/personal/mobile/plans/sim-only). */
+
+.cards-plan > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+/* card box */
+.cards-plan > ul > li {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+  border: 1px solid #dadada;
+  border-radius: 12px;
+  box-shadow: rgb(0 0 0 / 12%) 0 3px 8px;
+  overflow: hidden;
+}
+
+.cards-plan .cards-plan-card-body {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  flex: 1;
+}
+
+/* --- header: plan name + tier badge --- */
+.cards-plan .cards-plan-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cards-plan .cards-plan-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25px;
+  color: var(--text-color);
+}
+
+.cards-plan .cards-plan-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 16px;
+  border-radius: 8px;
+  background-color: var(--brand-teal);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.36px;
+  white-space: nowrap;
+}
+
+/* --- feature list (icon-less bullets from source) --- */
+.cards-plan .cards-plan-features {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+}
+
+.cards-plan .cards-plan-features li {
+  position: relative;
+  margin-top: 4px;
+  padding-left: 24px;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 400;
+  color: var(--text-color);
+}
+
+.cards-plan .cards-plan-features li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--brand-color);
+}
+
+/* --- section labels (Comes with / Promotions) --- */
+.cards-plan .cards-plan-label {
+  margin: 16px 0 0;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.36px;
+  color: var(--text-color);
+}
+
+.cards-plan .cards-plan-label strong {
+  font-weight: 700;
+}
+
+/* --- inclusions / promotions bullet lists --- */
+.cards-plan .cards-plan-includes,
+.cards-plan .cards-plan-promo-list {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+.cards-plan .cards-plan-includes li,
+.cards-plan .cards-plan-promo-list li {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--text-color);
+}
+
+/* --- promotions highlighted block (bleeds to card edges) --- */
+.cards-plan .cards-plan-promo {
+  margin: 16px -16px 0;
+  padding: 16px;
+  background-color: #eef1fb;
+}
+
+.cards-plan .cards-plan-promo .cards-plan-label {
+  margin-top: 0;
+}
+
+/* --- price block --- */
+.cards-plan .cards-plan-price {
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.cards-plan .cards-plan-term {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: #70707a;
+}
+
+.cards-plan .cards-plan-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.cards-plan .cards-plan-amount {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--text-color);
+}
+
+.cards-plan .cards-plan-up {
+  font-size: 12px;
+  font-weight: 400;
+  color: #8c8c98;
+  text-decoration: line-through;
+}
+
+/* --- CTA pill (brand-blue), pinned to bottom, full width --- */
+.cards-plan .button-container {
+  margin: 16px 0 0;
+}
+
+.cards-plan a.button:any-link {
+  display: inline-flex;
+  width: 100%;
+  border-radius: var(--button-radius);
+  padding: 10px 24px;
+  font-size: 16px;
+}
+
+/* tablet: two-up */
+@media (width >= 600px) {
+  .cards-plan > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* desktop: horizontal scroll row of fixed-width cards */
+@media (width >= 900px) {
+  .cards-plan > ul {
+    display: flex;
+    grid-template-columns: none;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scroll-snap-type: x proximity;
+  }
+
+  .cards-plan > ul > li {
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+  }
+}

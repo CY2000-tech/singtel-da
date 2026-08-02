@@ -18,12 +18,21 @@
     "structure": "top image + step heading + descriptive paragraph"
   },
   "reuseGuidance": {
-    "suitableFor": ["how-to / step-by-step guides","two-up illustrated instructions"],
-    "notSuitableFor": ["dense icon lists","pricing cards with CTAs"]
+    "suitableFor": [
+      "how-to / step-by-step guides",
+      "two-up illustrated instructions"
+    ],
+    "notSuitableFor": [
+      "dense icon lists",
+      "pricing cards with CTAs"
+    ]
   },
   "usage": {
-    "pagesUsing": ["/personal/products-services/mobile/5g-plus"],
-    "reuseCount": 1,
-    "lastUsed": "2026-08-02T02:42:00.000Z"
+    "pagesUsing": [
+      "/personal/products-services/mobile/5g-plus",
+      "/personal/mobile/plans/sim-only"
+    ],
+    "reuseCount": 2,
+    "lastUsed": "2026-08-02T06:27:43.313Z"
   }
 }

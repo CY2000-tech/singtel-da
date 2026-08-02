@@ -9,7 +9,7 @@
   min-height: 550px;
   padding: 40px 24px;
   overflow: hidden;
-  background-image: url('https://cdn2.singteldigital.com/content/dam/singtel/personal/products-services/mobile/5g-plus/image/project-mega-mobile.png');
+  background-image: url('./img/hero-bg-mobile.webp');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
@@ -71,7 +71,7 @@
   .hero-promo {
     min-height: 480px;
     padding: 48px 56px;
-    background-image: url('https://cdn2.singteldigital.com/content/dam/singtel/personal/products-services/mobile/5g-plus/image/project-mega-desktop.png');
+    background-image: url('./img/hero-bg-desktop.webp');
   }
 
   .hero-promo h1 {
