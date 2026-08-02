@@ -1,0 +1,112 @@
+/* Cards (Solution) — cards-solution
+ * Product/solution cards nested in tabs-plans panels.
+ * Image-top thumbnail + title + description + "Learn more" pill CTA.
+ * Values extracted from source computed styles (BigImageCard). */
+
+.cards-solution > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (width >= 600px) {
+  .cards-solution > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width >= 900px) {
+  .cards-solution > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (width >= 1200px) {
+  .cards-solution > ul {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px 20px;
+  }
+}
+
+/* card */
+.cards-solution > ul > li {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color, #fff);
+  border-radius: 8px;
+  box-shadow: 0 3px 8px 0 rgb(0 0 0 / 12%);
+  overflow: hidden;
+}
+
+/* image on top — source forces a 2:1 thumbnail */
+.cards-solution .cards-solution-card-image {
+  line-height: 0;
+}
+
+.cards-solution .cards-solution-card-image img {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+}
+
+/* body */
+.cards-solution .cards-solution-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  flex: 1 1 auto;
+}
+
+.cards-solution .cards-solution-card-body h3,
+.cards-solution .cards-solution-card-body h4 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25px;
+  color: var(--text-color, #222);
+  text-transform: none;
+}
+
+.cards-solution .cards-solution-card-body p {
+  margin: 0;
+  font-size: var(--body-font-size-m, 16px);
+  line-height: 24px;
+  color: var(--text-color, #222);
+}
+
+/* "Learn more" CTA — source renders an outlined pill; brand blue per design system */
+.cards-solution .cards-solution-cta {
+  margin: 0;
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.cards-solution .cards-solution-link,
+.cards-solution a.cards-solution-link:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border: 2px solid var(--brand-color, #0062f5);
+  border-radius: var(--button-radius, 40px);
+  padding: 8px 24px;
+  background-color: transparent;
+  color: var(--link-color, #0062f5);
+  font-size: var(--body-font-size-s, 14px);
+  font-weight: 700;
+  line-height: 1.25;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.cards-solution .cards-solution-link:hover,
+.cards-solution a.cards-solution-link:any-link:hover {
+  border-color: var(--link-hover-color, #0049b7);
+  background-color: var(--brand-color, #0062f5);
+  color: #fff;
+  text-decoration: none;
+}

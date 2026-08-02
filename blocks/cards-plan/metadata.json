@@ -1,0 +1,37 @@
+{
+  "variantName": "cards-plan",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-08-02T06:26:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.singtel.com/personal/mobile/plans/sim-only",
+    "originPage": "SIM Only plans page",
+    "blockPosition": "top-middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "plan-pricing-cards",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "plan name + tier badge + icon feature list + 'Comes with' inclusions + optional 'Promotions' list + price block (term + monthly + U.P.) + Get CTA"
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "detailed mobile/SIM plan comparison cards with feature and inclusion lists",
+      "pricing cards with contract term, monthly price and struck-through usual price",
+      "white pricing cards on a light page background"
+    ],
+    "notSuitableFor": [
+      "simple icon+title+price cards (use cards-pricing)",
+      "plain benefit tiles (use cards-benefit)",
+      "image-top step cards (use cards-step)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/personal/mobile/plans/sim-only"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-02T06:26:00.000Z"
+  }
+}

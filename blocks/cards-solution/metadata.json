@@ -1,0 +1,41 @@
+{
+  "variantName": "cards-solution",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-08-02T06:30:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.singtel.com/personal/products-services/lifestyle-services/my-smart-network",
+    "originPage": "My Smart Network lifestyle-services page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "solution-cards",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "top image + title + description + 'Learn more' link",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "informational product/solution cards (image + title + description + Learn more link)",
+      "feature/product grids nested inside tabbed panels (tabs-plans)",
+      "responsive multi-column card grids of catalog features with descriptions"
+    ],
+    "notSuitableFor": [
+      "shop carousels with add-to-cart CTA and no description (use cards-product)",
+      "pricing/plan cards with prices (use cards-pricing)",
+      "icon-only benefit tiles (use cards-benefit)",
+      "icon-left feature lists (use cards-feature)",
+      "step/how-to cards (use cards-step)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/personal/products-services/lifestyle-services/my-smart-network"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-02T06:30:00.000Z"
+  }
+}

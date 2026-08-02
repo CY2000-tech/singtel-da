@@ -18,12 +18,22 @@
     "structure": "question label + answer body"
   },
   "reuseGuidance": {
-    "suitableFor": ["FAQ sections","expandable Q&A lists"],
-    "notSuitableFor": ["tabbed content","product feature grids"]
+    "suitableFor": [
+      "FAQ sections",
+      "expandable Q&A lists"
+    ],
+    "notSuitableFor": [
+      "tabbed content",
+      "product feature grids"
+    ]
   },
   "usage": {
-    "pagesUsing": ["/personal/products-services/mobile/5g-plus"],
-    "reuseCount": 1,
-    "lastUsed": "2026-08-02T02:42:00.000Z"
+    "pagesUsing": [
+      "/personal/products-services/mobile/5g-plus",
+      "/personal/mobile/plans/sim-only",
+      "/personal/products-services/lifestyle-services/my-smart-network"
+    ],
+    "reuseCount": 3,
+    "lastUsed": "2026-08-02T06:30:00.000Z"
   }
 }

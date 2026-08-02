@@ -1,0 +1,37 @@
+{
+  "variantName": "cards-product",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-08-02T06:26:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.singtel.com/personal/mobile/plans/sim-only",
+    "originPage": "SIM Only plans page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "product-carousel",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "product image + product name + Add CTA (horizontal scroll)"
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "product/device shop carousels (image + name + add-to-cart CTA)",
+      "horizontally scrollable card rows of catalog items",
+      "phone/accessory shop listings without inline pricing"
+    ],
+    "notSuitableFor": [
+      "pricing cards with prices and descriptions (use cards-pricing / cards-plan)",
+      "icon benefit tiles (use cards-benefit)",
+      "step/how-to cards (use cards-step)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/personal/mobile/plans/sim-only"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-02T06:26:00.000Z"
+  }
+}
