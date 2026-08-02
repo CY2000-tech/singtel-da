@@ -1,0 +1,63 @@
+/* Block: cards-benefit — centered icon + short heading tiles (no card border).
+   Used for the "UNLIMITED 5G+ / Safer Roaming / Secure 5G+" intro tiles and the
+   "Network/Coverage/Innovation PLUS" tiles. Values extracted from
+   singtel.com/personal/products-services/mobile/5g-plus computed styles. */
+
+.cards-benefit > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (width >= 600px) {
+  .cards-benefit > ul {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+}
+
+.cards-benefit > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 24px;
+  padding: 16px 24px 0;
+}
+
+/* icon */
+.cards-benefit .cards-benefit-card-image {
+  line-height: 0;
+}
+
+.cards-benefit .cards-benefit-card-image img {
+  width: 100%;
+  max-width: 160px;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (width >= 900px) {
+  .cards-benefit .cards-benefit-card-image img {
+    max-width: 200px;
+  }
+}
+
+/* heading */
+.cards-benefit .cards-benefit-card-body {
+  margin: 0;
+}
+
+.cards-benefit .cards-benefit-card-body h3 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-l); /* 20px */
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.2px;
+  color: var(--text-color);
+  text-align: center;
+}

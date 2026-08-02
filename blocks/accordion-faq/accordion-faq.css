@@ -1,0 +1,88 @@
+/*
+ * Accordion (FAQ) Block — Singtel 5G+ styling
+ * Decorated DOM:
+ *   .accordion-faq
+ *     details.accordion-faq-item
+ *       summary.accordion-faq-item-label   (question)
+ *       div.accordion-faq-item-body         (answer)
+ */
+
+/* Each Q&A row: no background, separated by a light-grey 1px divider */
+.accordion-faq .accordion-faq-item {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Question row — typography matches source: 18px/27px, weight 700, #222 */
+.accordion-faq .accordion-faq-item summary {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 16px 40px 16px 0;
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-color);
+  list-style: none;
+  cursor: pointer;
+}
+
+.accordion-faq .accordion-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Question text may be authored as a paragraph or heading — normalize margins */
+.accordion-faq .accordion-faq-item summary p,
+.accordion-faq .accordion-faq-item summary h3 {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+
+/* Chevron — down when closed, up when open (source color #8c8c98) */
+.accordion-faq .accordion-faq-item summary::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #8c8c98;
+  border-bottom: 2px solid #8c8c98;
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.accordion-faq .accordion-faq-item[open] summary::after {
+  transform: translateY(-30%) rotate(-135deg);
+}
+
+/* Answer body — text 18px/27px weight 400, #222 */
+.accordion-faq .accordion-faq-item .accordion-faq-item-body {
+  padding: 0 0 12px;
+  color: var(--text-color);
+}
+
+.accordion-faq .accordion-faq-item .accordion-faq-item-body p {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+.accordion-faq .accordion-faq-item .accordion-faq-item-body p + p {
+  margin-top: 0.8em;
+}
+
+/* Inline links in answers use brand blue */
+.accordion-faq .accordion-faq-item .accordion-faq-item-body a:any-link {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.accordion-faq .accordion-faq-item .accordion-faq-item-body a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}

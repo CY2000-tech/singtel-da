@@ -1,0 +1,29 @@
+{
+  "variantName": "cards-feature",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-08-02T02:42:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.singtel.com/personal/products-services/mobile/5g-plus",
+    "originPage": "mobile 5G+ product marketing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "colored",
+    "density": "spacious",
+    "purpose": "feature-list",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "circular icon + heading + description"
+  },
+  "reuseGuidance": {
+    "suitableFor": ["icon-left feature lists on colored sections","plan benefit breakdowns"],
+    "notSuitableFor": ["image-top product cards","pricing cards"]
+  },
+  "usage": {
+    "pagesUsing": ["/personal/products-services/mobile/5g-plus"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-02T02:42:00.000Z"
+  }
+}

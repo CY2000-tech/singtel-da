@@ -1,0 +1,125 @@
+/* Pricing cards: white card sitting on the navy section.
+   Each card: header (icon + title + price), description, and a pill CTA.
+   Values extracted from singtel.com/personal/products-services/mobile/5g-plus. */
+
+.cards-pricing > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (width >= 600px) {
+  .cards-pricing > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width >= 900px) {
+  .cards-pricing > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* the card */
+.cards-pricing > ul > li {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #222;
+  box-shadow: rgb(0 0 0 / 12%) 0 3px 8px;
+}
+
+/* card body wraps everything below the (re-parented) structure */
+.cards-pricing .cards-pricing-card-body {
+  margin: 0;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* header row: icon beside the title + price */
+.cards-pricing .cards-pricing-card-header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.cards-pricing .cards-pricing-card-image {
+  flex: 0 0 auto;
+  line-height: 0;
+}
+
+.cards-pricing .cards-pricing-card-image img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.cards-pricing .cards-pricing-card-title-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* title */
+.cards-pricing .cards-pricing-card-body h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+  color: #222;
+}
+
+/* price */
+.cards-pricing .cards-pricing-card-price {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  color: #70707a;
+}
+
+/* description */
+.cards-pricing .cards-pricing-card-desc {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  color: #222;
+}
+
+.cards-pricing .cards-pricing-card-desc a:any-link {
+  color: var(--link-color);
+}
+
+/* pill CTA pinned to the bottom of the card */
+.cards-pricing .cards-pricing-card-body .button-container {
+  margin: 0;
+  margin-top: auto;
+}
+
+.cards-pricing .cards-pricing-card-body a.button:any-link {
+  display: inline-flex;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 40px;
+  padding: 8px 24px;
+  background-color: #242328;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.25;
+  white-space: normal;
+}
+
+.cards-pricing .cards-pricing-card-body a.button:any-link:hover {
+  border-color: transparent;
+  background-color: #000;
+  color: #fff;
+}
