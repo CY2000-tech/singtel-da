@@ -1,0 +1,29 @@
+{
+  "variantName": "tabs-plans",
+  "baseBlock": "tabs",
+  "version": "1.0.0",
+  "created": "2026-08-02T02:42:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.singtel.com/personal/products-services/mobile/5g-plus",
+    "originPage": "mobile 5G+ product marketing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "plan-comparison-tabs",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "tab labels + panel with comparison image"
+  },
+  "reuseGuidance": {
+    "suitableFor": ["tabbed plan/price comparison","switchable content panels"],
+    "notSuitableFor": ["single-panel content","accordion Q&A"]
+  },
+  "usage": {
+    "pagesUsing": ["/personal/products-services/mobile/5g-plus"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-02T02:42:00.000Z"
+  }
+}

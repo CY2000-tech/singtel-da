@@ -1,0 +1,165 @@
+{
+  "metadata": {
+    "projectType": "da"
+  },
+  "templates": [
+    {
+      "name": "5g-plus",
+      "urls": [
+        "https://www.singtel.com/personal/products-services/mobile/5g-plus"
+      ],
+      "representativeUrl": "https://www.singtel.com/personal/products-services/mobile/5g-plus",
+      "coverageGaps": [],
+      "description": "Singtel 5G+ mobile product marketing page: hero promo banner, intro/benefit tiles, tabbed plan comparison, Enhanced (teal) and Priority (navy) feature sections, plan-category CTA, 'huge PLUS' benefit tiles, how-to step cards, Priority Pass pricing cards, and FAQ accordion.",
+      "blocks": [
+        {
+          "name": "hero-promo",
+          "instances": [
+            ".sc-lbJcrp.bQGNRU"
+          ]
+        },
+        {
+          "name": "cards-benefit",
+          "instances": [
+            ".sc-gEvEer.iEmrWN:has(> .sc-eqUAAy.liiqJP > .sc-cKXybt.sc-lgjHQU img[alt*=\"Upsize\"])",
+            ".sc-cbPlza.labNNc .sc-gEvEer.iEmrWN:has(> div > .sc-cKXybt.sc-lgjHQU)"
+          ]
+        },
+        {
+          "name": "tabs-plans",
+          "instances": [
+            "div:has(> .sc-bkSUFG.jYsZQx):has(> #tabpanel-0):has(> #tabpanel-1)"
+          ]
+        },
+        {
+          "name": "cards-feature",
+          "instances": [
+            ".sc-cbPlza.hidDuG .sc-gEvEer.iEmrWN:has(> div > .sc-cKXybt.sc-fatcLD)",
+            ".sc-cbPlza.bTWdQO .sc-gEvEer.iEmrWN:has(> div > .sc-cKXybt.sc-fatcLD)"
+          ]
+        },
+        {
+          "name": "cards-step",
+          "instances": [
+            ".sc-cbPlza.imWEiG .sc-gEvEer.iEmrWN:has(> .sc-eqUAAy.kxvbvX)"
+          ]
+        },
+        {
+          "name": "cards-pricing",
+          "instances": [
+            ".sc-cbPlza.gdvwMg .sc-dAEZTx.LGnnw"
+          ]
+        },
+        {
+          "name": "accordion-faq",
+          "instances": [
+            ".sc-eqUAAy.eLrnuL:has(section.sc-faUjhM)"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "s1",
+          "name": "Hero promo banner",
+          "selector": ".sc-lbJcrp.bQGNRU",
+          "style": null,
+          "blocks": [
+            "hero-promo"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "s2",
+          "name": "5G+ intro / key benefits + plan comparison",
+          "selector": ".sc-feNupb.bubDsw",
+          "style": null,
+          "blocks": [
+            "cards-benefit",
+            "tabs-plans"
+          ],
+          "defaultContent": [
+            "p.sc-jlZhew"
+          ]
+        },
+        {
+          "id": "s3",
+          "name": "5G+ Enhanced benefits",
+          "selector": ".sc-epALIP.euohZm",
+          "style": "teal",
+          "blocks": [
+            "cards-feature"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "s4",
+          "name": "5G+ Priority benefits",
+          "selector": ".sc-epALIP.euohZm",
+          "style": "navy",
+          "blocks": [
+            "cards-feature"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "s5",
+          "name": "Plan category selector CTA",
+          "selector": ".sc-jXbUNg.buzYkj",
+          "style": "light-grey",
+          "blocks": [],
+          "defaultContent": [
+            "h2.sc-jXbUNg"
+          ]
+        },
+        {
+          "id": "s6",
+          "name": "Now, 5G comes with a huge PLUS",
+          "selector": ".sc-gZfzYS.kSRtco",
+          "style": "light-grey",
+          "blocks": [
+            "cards-benefit"
+          ],
+          "defaultContent": [
+            "h2.sc-jXbUNg"
+          ]
+        },
+        {
+          "id": "s7",
+          "name": "Here's how to enjoy Singtel 5G+",
+          "selector": ".sc-iNIeMn.cZwMrl",
+          "style": null,
+          "blocks": [
+            "cards-step"
+          ],
+          "defaultContent": [
+            "h2.sc-jXbUNg"
+          ]
+        },
+        {
+          "id": "s8",
+          "name": "5G+ Priority Pass pricing",
+          "selector": ".sc-hsUFQk.ciOAtj",
+          "style": "navy",
+          "blocks": [
+            "cards-pricing"
+          ],
+          "defaultContent": [
+            "h2.sc-jXbUNg.fdGsdY"
+          ]
+        },
+        {
+          "id": "s9",
+          "name": "Frequently Asked Questions",
+          "selector": "#accordion-content-undefined",
+          "style": null,
+          "blocks": [
+            "accordion-faq"
+          ],
+          "defaultContent": [
+            "h2.sc-jXbUNg"
+          ]
+        }
+      ]
+    }
+  ]
+}

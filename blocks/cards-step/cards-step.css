@@ -1,0 +1,92 @@
+/* Block: cards-step
+ * Two step cards, image on top, centered step heading + descriptive paragraph.
+ * Values extracted from singtel.com/.../5g-plus (source computed styles).
+ */
+
+.cards-step > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px 16px;
+}
+
+.cards-step > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  flex: 1 1 290px;
+  max-width: 290px;
+  padding: 8px;
+}
+
+/* image on top */
+.cards-step .cards-step-card-image {
+  line-height: 0;
+  width: 100%;
+}
+
+.cards-step .cards-step-card-image img {
+  width: 100%;
+  max-width: 290px;
+  height: auto;
+  object-fit: cover;
+}
+
+/* text body: step heading + descriptive paragraph */
+.cards-step .cards-step-card-body {
+  margin: 0;
+}
+
+.cards-step .cards-step-card-body h3 {
+  margin: 0 0 16px;
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0.36px;
+  color: var(--text-color);
+}
+
+.cards-step .cards-step-card-body p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  color: var(--text-color);
+}
+
+/* inline links: brand blue, bold, underlined */
+.cards-step .cards-step-card-body a:any-link {
+  color: var(--link-color);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.cards-step .cards-step-card-body a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* two columns from tablet up; keep the pair centered */
+@media (width >= 600px) {
+  .cards-step > ul {
+    gap: 0;
+  }
+
+  .cards-step > ul > li {
+    flex: 0 1 306px;
+    max-width: 306px;
+  }
+}
+
+@media (width >= 900px) {
+  .cards-step > ul > li {
+    flex: 0 1 340px;
+    max-width: 340px;
+  }
+}

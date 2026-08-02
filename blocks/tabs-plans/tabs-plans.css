@@ -1,0 +1,79 @@
+/* Block: tabs-plans — plan comparison tabs (values from source computed styles) */
+
+.tabs-plans {
+  margin: 0 auto;
+}
+
+/* tablist: two equal-width tabs sharing a baseline */
+.tabs-plans .tabs-plans-list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.tabs-plans .tabs-plans-list button.tabs-plans-tab {
+  flex: 1 1 0;
+  margin: 0;
+  border: 0;
+  border-bottom: 2px solid #e1e1e1;
+  border-radius: 0;
+  padding: 0 16px 8px;
+  background-color: transparent;
+  color: #70707a;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.16px;
+  text-align: center;
+  white-space: normal;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.tabs-plans .tabs-plans-list button.tabs-plans-tab p {
+  margin: 0;
+}
+
+.tabs-plans .tabs-plans-list button.tabs-plans-tab[aria-selected='true'] {
+  border-bottom-color: var(--brand-color);
+  color: var(--brand-color);
+  font-weight: 700;
+  letter-spacing: 0.32px;
+  cursor: default;
+}
+
+@media (width >= 600px) {
+  .tabs-plans .tabs-plans-list button.tabs-plans-tab {
+    padding: 0 24px 8px;
+    font-size: var(--body-font-size-m);
+  }
+}
+
+/* panels: comparison image only, no border/chrome */
+.tabs-plans .tabs-plans-panel {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: auto;
+}
+
+.tabs-plans .tabs-plans-panel[aria-hidden='true'] {
+  display: none;
+}
+
+.tabs-plans .tabs-plans-panel > div {
+  margin-top: 24px;
+}
+
+.tabs-plans .tabs-plans-panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (width >= 900px) {
+  .tabs-plans .tabs-plans-panel > div {
+    margin-top: 40px;
+  }
+}
